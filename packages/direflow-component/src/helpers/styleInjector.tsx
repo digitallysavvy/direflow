@@ -5,6 +5,7 @@ const isDevEnv = process.env.NODE_ENV !== 'production';
 
 interface IProps {
   scoped?: boolean;
+  children?: React.ReactNode; // explicitly allows children
 }
 
 class Style extends Component<IProps> {

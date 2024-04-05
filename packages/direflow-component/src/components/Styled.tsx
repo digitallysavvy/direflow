@@ -1,46 +1,44 @@
-import React, { FC, Component, ReactNode, ComponentClass, CSSProperties } from 'react';
-import Style from '../helpers/styleInjector';
+import React, { FC, ReactNode, CSSProperties, ComponentType } from 'react';
 
 type TStyles = string | string[] | CSSProperties | CSSProperties[];
 
 interface IStyled {
   styles: TStyles;
-  scoped?: boolean;
   children: ReactNode | ReactNode[];
 }
 
-const Styled: FC<IStyled> = (props): JSX.Element => {
-  let styles;
+const cssPropertiesToString = (styles: CSSProperties): string => {
+  return Object.entries(styles).reduce((styleString, [propName, propValue]) => {
+    const kebabPropName = propName.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
+    return `${styleString}${kebabPropName}:${propValue};`;
+  }, '');
+};
 
-  if (typeof props.styles === 'string') {
-    styles = (props.styles as CSSProperties).toString();
-  } else {
-    styles = (props.styles as CSSProperties[]).reduce(
-      (acc: CSSProperties, current: CSSProperties) => `${acc} ${current}` as CSSProperties,
-    );
+const Styled: FC<IStyled> = ({ styles, children }): JSX.Element => {
+  let stylesString = '';
+
+  if (typeof styles === 'string' || Array.isArray(styles)) {
+    stylesString = Array.isArray(styles) ? styles.join(' ') : styles;
+  } else if (styles instanceof Object) {
+    stylesString = Array.isArray(styles)
+      ? styles.map(cssPropertiesToString).join(' ')
+      : cssPropertiesToString(styles);
   }
 
   return (
-    <Style scoped={props.scoped}>
-      {styles}
-      {props.children}
-    </Style>
+    <div>
+      <style>{stylesString}</style>
+      {children}
+    </div>
   );
 };
 
-const withStyles = (styles: TStyles) => <P, S>(WrappedComponent: ComponentClass<P, S> | FC<P>) => {
-  // eslint-disable-next-line react/prefer-stateless-function
-  return class extends Component<P, S> {
-    public render(): JSX.Element {
-      return (
-        <Styled styles={styles}>
-          <div>
-            <WrappedComponent {...(this.props as P)} />
-          </div>
-        </Styled>
-      );
-    }
-  };
+const withStyles = (styles: TStyles) => <P extends {}>(WrappedComponent: ComponentType<P>) => {
+  return (props: P) => (
+    <Styled styles={styles}>
+      <WrappedComponent {...props} />
+    </Styled>
+  );
 };
 
 export { withStyles, Styled };
