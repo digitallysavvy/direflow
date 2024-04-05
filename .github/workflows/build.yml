@@ -43,21 +43,21 @@ jobs:
     - name: Create version patch
       run: npm run update-version patch
 
-    - name: Publish direflow-cli to NPM
-      run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # - name: Publish direflow-cli to NPM
+    #   run: npm publish
+    #   env:
+    #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
   
-    - name: Publish direflow-component to NPM
-      run: |
-        cd packages/direflow-component
-        npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # - name: Publish direflow-component to NPM
+    #   run: |
+    #     cd packages/direflow-component
+    #     npm publish
+    #   env:
+    #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
   
-    - name: Publish direflow-scripts to NPM
-      run: |
-        cd packages/direflow-scripts
-        npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # - name: Publish direflow-scripts to NPM
+    #   run: |
+    #     cd packages/direflow-scripts
+    #     npm publish
+    #   env:
+    #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
