@@ -1,6 +1,6 @@
 {
   "name": "direflow-cli",
-  "version": "5.0.0",
+  "version": "5.0.0-link",
   "description": "Official CLI for Direflow (forked)",
   "main": "dist/index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:Silind-Software/direflow.git"
+    "url": "git@github.com:digitallyavvy/direflow.git"
   },
   "keywords": [
     "cli",
@@ -36,7 +36,11 @@
     "typescript"
   ],
   "author": "Silind Software",
-  "contributors": [{"name": "digitallysavvy"}],
+  "contributors": [
+    {
+      "name": "digitallysavvy"
+    }
+  ],
   "license": "MIT",
   "homepage": "https://direflow.io",
   "dependencies": {

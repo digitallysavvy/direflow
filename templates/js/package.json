@@ -13,11 +13,11 @@
   "homepage": "https://direflow.io/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Silind-Software/direflow"
+    "url": "https://github.com/digitallyavvy/direflow"
   },
   "bugs": {
     "email": "direflow@silind.com",
-    "url": "https://github.com/Silind-Software/direflow/issues/new"
+    "url": "https://github.com/digitallyavvy/direflow/issues/new"
   },
   "main": "build/direflowBundle.js",
   "files": [
@@ -36,8 +36,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "^4.0.3",
-    "direflow-component": "4.0.0",
-    "direflow-scripts": "4.0.0"
+    "direflow-component": "/Users/arlene/Dev/agora/direflow/packages/direflow-component",
+    "direflow-scripts": "/Users/arlene/Dev/agora/direflow/packages/direflow-scripts"
   },
   "devDependencies": {
     "eslint-plugin-node": "^11.0.0",
