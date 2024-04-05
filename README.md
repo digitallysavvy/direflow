@@ -6,8 +6,8 @@
 
 <span align="right">
 
-  [![NPM Version](https://img.shields.io/npm/v/direflow-cli)](https://www.npmjs.com/package/direflow-cli)
-  [![Github License](https://img.shields.io/github/license/Silind-Software/direflow)](https://github.com/Silind-Software/direflow/blob/master/LICENSE)
+  <!-- [![NPM Version](https://img.shields.io/npm/v/direflow-cli)](https://www.npmjs.com/package/direflow-cli) -->
+  [![Github License](https://img.shields.io/github/license/digitallysavvy/direflow)](https://github.com/digitallysavvy/direflow/blob/master/LICENSE)
   ![Build Status](https://github.com/digitallysavvy/direflow/workflows/build/badge.svg)
   ![Code Coverage](https://img.shields.io/codecov/c/github/digitallysavvy/direflow)
 
